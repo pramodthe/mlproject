@@ -18,7 +18,6 @@ writing_score = st.slider("Writing Score out of 100", min_value=0, max_value=100
 reading_score = st.slider("Reading Score out of 100", min_value=0, max_value=100)
 
 
-
 if st.button("Predict your score"):
     data=CustomData(
         gender=gender,
@@ -28,7 +27,6 @@ if st.button("Predict your score"):
         test_preparation_course=test_preparation_course,
         reading_score=reading_score,
         writing_score=writing_score
-
     )
     pred_df = data.get_data_as_data_frame()
     print(pred_df)
