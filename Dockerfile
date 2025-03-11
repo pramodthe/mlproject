@@ -9,12 +9,10 @@ COPY . /app/
 
 # Install system dependencies
 RUN apt-get update && \
-    pip install awscli && \
-    pip install -r requirements.txt
+    pip3 install awscli && \
+    pip3 install -r requirements.txt
 
 
 EXPOSE 8501
 
-HEALTHCHECK CMD curl --fail http://localhost:8501/_stcore/health
-
-ENTRYPOINT ["streamlit", "run", "app.py", "--server.port=8501", "--server.address=0.0.0.0"]
+CMD streamlit run app.py server=“0.0.0.0”
